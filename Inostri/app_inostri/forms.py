@@ -7,3 +7,4 @@ class VinoFormulario(forms.Form):
     cosecha = forms.IntegerField(required=True)
     region = forms.CharField(required=True, max_length=64)
     provincia = forms.CharField(required=True, max_length=64) 
+

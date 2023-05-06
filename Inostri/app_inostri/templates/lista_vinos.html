@@ -1,0 +1,16 @@
+{% extends "app_inostri/base.html" %}
+
+{% block contenido %}
+<section>
+  <div>
+    <h1>Lista de Vinos</h1>
+    {% block contenido_vinos %}
+    {% endblock contenido_vinos %}
+    <ul>
+    {% for vino in Vinos %}
+      <li>{{ vino.nombre }}, {{ vino.bodega }}</li>
+    {% endfor %}
+    </ul>
+  </div>
+</section>
+{% endblock contenido %}
