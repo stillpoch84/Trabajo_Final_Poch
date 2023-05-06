@@ -22,4 +22,5 @@ from sistema_inostri.views import inicio
 urlpatterns = [
     path('', inicio, name='inicio'),
     path('admin/', admin.site.urls),
+    path('inostri/', include("app_inostri.urls")),
 ]

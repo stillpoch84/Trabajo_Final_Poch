@@ -73,7 +73,7 @@ def listar_bodegas(request):
 
 def listar_varietales(request):
     context = {
-        'vinos': Varietal.objects.all(),
+        'varietales': Varietal.objects.all(),
     }
     http_response = render(
         request=request,
