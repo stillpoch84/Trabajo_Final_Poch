@@ -50,7 +50,7 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
-ROOT_URLCONF = 'Inostri.urls'
+ROOT_URLCONF = 'sistema_inostri.urls'
 
 TEMPLATES = [
     {
@@ -68,7 +68,7 @@ TEMPLATES = [
     },
 ]
 
-WSGI_APPLICATION = 'Inostri.wsgi.application'
+WSGI_APPLICATION = 'sistema_inostri.wsgi.application'
 
 
 # Database

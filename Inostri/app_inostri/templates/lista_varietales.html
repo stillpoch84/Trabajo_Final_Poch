@@ -1,0 +1,16 @@
+{% extends "app_inostri/base.html" %}
+
+{% block contenido %}
+<section>
+  <div>
+    <h1>Lista de Varietales</h1>
+    {% block contenido_varietales %}
+    {% endblock contenido_varietales %}
+    <ul>
+    {% for varietal in Varietales %}
+      <li>{{ varietal.nombre }}, {{ varietal.varietal }}</li>
+    {% endfor %}
+    </ul>
+  </div>
+</section>
+{% endblock contenido %}
