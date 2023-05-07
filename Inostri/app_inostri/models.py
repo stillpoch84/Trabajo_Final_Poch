@@ -26,8 +26,7 @@ class Bodega(models.Model):
     
 class Varietal(models.Model):
     nombre = models.CharField(max_length=64)
-    tipo = models.CharField(max_length=20)
     descripcion = models.TextField(blank=True)
-
+    
     def __str__(self):
-        return f'{self.nombre} | {self.tipo}'
+        return f'{self.nombre} | {self.descripcion}'

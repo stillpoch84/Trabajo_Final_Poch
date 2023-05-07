@@ -49,6 +49,7 @@ def buscar_vino(request):
         data = request.POST
         busqueda = data['busqueda']
         vinos = Vino.objects.filter(nombre__contains=busqueda)
+        vinos = Vino.objects.filter(bodega__contains=busqueda)
         context = {
             'vinos': vinos,
         }
@@ -77,7 +78,23 @@ def listar_varietales(request):
     }
     http_response = render(
         request=request,
-        template_name='app_inostri/lista_varietal.html',
+        template_name='app_inostri/lista_varietales.html',
         context=context
     )
     return http_response
+
+def buscar_varietal(request):
+    if request.method == 'POST':
+        data = request.POST
+        busqueda = data['busqueda']
+        varietal = Varietal.objects.filter(nombre__contains=busqueda)
+        varietal = Varietal.objects.filter(descripcion__contains=busqueda)
+        context = {
+            'varietales': varietal,
+        }
+        http_response = render(
+            request=request,
+            template_name='app_inostri/lista_varietales.html',
+            context=context,
+        )
+        return http_response
