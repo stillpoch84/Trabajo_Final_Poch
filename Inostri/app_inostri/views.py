@@ -35,14 +35,14 @@ def crear_vino(request):
 
             url_exitosa = reverse('lista_vinos')
             return redirect(url_exitosa)
-        else:
+    else:
             formulario = VinoFormulario()
-        http_response = render(
+    http_response = render(
             request=request,
             template_name='app_inostri/formulario_vino.html',
             context={'formulario': formulario}
         )
-        return http_response  
+    return http_response  
 
 def buscar_vino(request):
     if request.method == 'POST':
