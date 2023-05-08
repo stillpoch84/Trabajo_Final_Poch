@@ -4,12 +4,12 @@ from django.urls import reverse
 # Create your views here.
 
 from app_inostri.models import Vino, Bodega, Varietal
-from app_inostri.forms import VinoFormulario 
+from app_inostri.forms import VinoFormulario, BodegaFormulario, VarietalFormulario
 
 
 def listar_vinos(request):
     context = {
-        'vinos': Vino.objects.all(),
+        'vinos': Vino.objects.order_by('nombre'),
     }
     http_response = render(
         request=request,
@@ -59,7 +59,7 @@ def buscar_vino(request):
             context=context,
         )
         return http_response
-    
+   
 
 def listar_bodegas(request):
     context = {
@@ -72,9 +72,52 @@ def listar_bodegas(request):
     )
     return http_response
 
+
+def buscar_bodega(request):
+    if request.method == 'POST':
+        data = request.POST
+        busqueda = data['busqueda']
+        bodegas = Bodega.objects.filter(nombre__contains=busqueda)
+        bodegas = Bodega.objects.filter(provincia__contains=busqueda)
+        context = {
+            'bodegas': bodegas,
+        }
+        http_response = render(
+            request=request,
+            template_name='app_inostri/lista_bodegas.html',
+            context=context,
+        )
+        return http_response 
+    
+def crear_bodega(request):
+    if request.method == 'POST':
+        formulario = BodegaFormulario(request.POST)
+
+        if formulario.is_valid():
+            data = formulario.cleaned_data 
+            nombre = data['nombre']
+            direccion = data['direccion']
+            region = data['region']
+            provincia = data['provincia']
+            telefono = data['telefono']
+            email = data['email']
+            bodega = Bodega(nombre=nombre, direccion=direccion, region=region, provincia=provincia, telefono=telefono, email=email)
+            bodega.save()
+
+            url_exitosa = reverse('lista_bodegas')
+            return redirect(url_exitosa)
+    else:
+            formulario = BodegaFormulario()
+    http_response = render(
+            request=request,
+            template_name='app_inostri/formulario_bodega.html',
+            context={'formulario': formulario}
+        )
+    return http_response     
+
 def listar_varietales(request):
     context = {
-        'varietales': Varietal.objects.all(),
+        'varietales': Varietal.objects.order_by('nombre'),
     }
     http_response = render(
         request=request,
@@ -87,8 +130,8 @@ def buscar_varietal(request):
     if request.method == 'POST':
         data = request.POST
         busqueda = data['busqueda']
-        varietal = Varietal.objects.filter(nombre__contains=busqueda)
-        varietal = Varietal.objects.filter(descripcion__contains=busqueda)
+        varietal = Varietal.objects.filter(nombre__contains=busqueda).order_by('nombre')
+        varietal = Varietal.objects.filter(descripcion__contains=busqueda).order_by('nombre')
         context = {
             'varietales': varietal,
         }
@@ -98,3 +141,25 @@ def buscar_varietal(request):
             context=context,
         )
         return http_response
+    
+def crear_varietal(request):
+    if request.method == 'POST':
+        formulario = VarietalFormulario(request.POST)
+
+        if formulario.is_valid():
+            data = formulario.cleaned_data 
+            nombre = data['nombre']
+            descripcion = data['descripcion']
+            varietal = Varietal(nombre=nombre, descripcion=descripcion)
+            varietal.save()
+
+            url_exitosa = reverse('lista_varietales')
+            return redirect(url_exitosa)
+    else:
+            formulario = VarietalFormulario()
+    http_response = render(
+            request=request,
+            template_name='app_inostri/formulario_varietal.html',
+            context={'formulario': formulario}
+        )
+    return http_response  

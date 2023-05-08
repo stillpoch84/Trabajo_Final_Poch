@@ -8,3 +8,14 @@ class VinoFormulario(forms.Form):
     region = forms.CharField(required=True, max_length=64)
     provincia = forms.CharField(required=True, max_length=64) 
 
+class BodegaFormulario(forms.Form):
+    nombre = forms.CharField(required=True, max_length=64) 
+    direccion = forms.CharField(required=True, max_length=256)
+    region = forms.CharField(required=True, max_length=64)
+    provincia = forms.CharField(required=True, max_length=64)
+    telefono = forms.CharField(required=False, max_length=20)
+    email = forms.EmailField(required=False) 
+
+class VarietalFormulario(forms.Form):
+    nombre = forms.CharField(required=True, max_length=64) 
+    descripcion = forms.CharField(required=True, max_length=800) 

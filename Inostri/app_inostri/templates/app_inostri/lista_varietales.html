@@ -4,6 +4,7 @@
 <section>
   <div>
     <h1>Lista de Varietales</h1>
+    <a href="{% url 'crear_varietal' %}">Crear Varietal</a>
     <br><br>
     <form action="{% url 'buscar_varietal' %}" method="post">
       {% csrf_token %}
@@ -13,7 +14,7 @@
     <br>
     <ul>
     {% for varietal in varietales %}
-      <li>{{ varietal.nombre }}: {{ varietal.descripcion }}</li>
+      <li><strong>{{ varietal.nombre }}:</strong> {{ varietal.descripcion }}</li>
     {% endfor %}
     </ul>
   </div>
