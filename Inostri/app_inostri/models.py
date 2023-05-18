@@ -7,16 +7,16 @@ class Vino(models.Model):
     bodega = models.CharField(max_length=64)
     varietal = models.CharField(max_length=64)
     cosecha = models.IntegerField()
-    region = models.CharField(max_length=64)
+    zona = models.CharField(max_length=64)
     provincia = models.CharField(max_length=64)
 
     def __str__(self):
-        return f'{self.nombre} | {self.bodega} | {self.varietal} | {self.region}'
+        return f'{self.nombre} | {self.bodega} | {self.varietal} | {self.zona}'
 
 class Bodega(models.Model):
     nombre = models.CharField(max_length=64)
     direccion = models.CharField(max_length=256)
-    region = models.CharField(max_length=64)
+    zona = models.CharField(max_length=64)
     provincia = models.CharField(max_length=64)
     telefono = models.CharField(max_length=20, blank=True)
     email = models.EmailField(blank=True)

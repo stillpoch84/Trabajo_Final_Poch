@@ -25,10 +25,12 @@
             <div class="container">
                 <img src="{% static 'images/i_nostri.png' %}" alt="I Nostri" class="logo" width=90 height=90>
                 <a class="navbar-brand" href="{% url 'inicio' %}">Inicio</a>
+                <a class="navbar-brand" href="{% url 'inicio' %}">Blog</a>
                 <a class="navbar-brand" href="{% url 'lista_vinos' %}">Vinos</a>
                 <a class="navbar-brand" href="{% url 'lista_bodegas' %}">Bodegas</a>
                 <a class="navbar-brand" href="{% url 'lista_varietales' %}">Varietales</a>
-                <a class="btn btn-primary" href="#signup">Registro</a>
+                <a class="navbar-brand" href="{% url 'lista_varietales' %}">About Us</a>
+                <a class="btn btn-dark" href="#signup">Registro</a>
             </div>
         </nav>
 
@@ -53,10 +55,10 @@
                     <div class="col-lg-6 h-100 text-center text-lg-end my-auto">
                         <ul class="list-inline mb-0">
                             <li class="list-inline-item me-4">
-                                <a href="https://twitter.com/coderhouse"><i class="bi-twitter fs-3"></i></a>
+                                <a href="https://twitter.com/coderhouse" style="color: black;"><i class="bi-twitter fs-3"></i></a>
                             </li>
                             <li class="list-inline-item">
-                                <a href="https://www.instagram.com/coderhouse/?hl=es"><i class="bi-instagram fs-3"></i></a>
+                                <a href="https://www.instagram.com/coderhouse/?hl=es" style="color: black;"><i class="bi-instagram fs-3"></i></a>
                             </li>
                         </ul>
                     </div>

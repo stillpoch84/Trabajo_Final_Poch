@@ -1,6 +1,15 @@
 {% extends "app_inostri/base.html" %}
+{% load static %}
 
 {% block contenido %}
+
+{% comment %} <style>
+    body {
+        background-image: url("{% static 'images/background.png' %}");
+        background-repeat: no-repeat;
+        background-size: cover;
+    }
+</style> {% endcomment %}
 <h1>Bienvenidos a I Nostri</h1>
 <h5>Navegá por nuestro sitio, y encontrá el vino para vos.</h5>
 {% endblock contenido %}

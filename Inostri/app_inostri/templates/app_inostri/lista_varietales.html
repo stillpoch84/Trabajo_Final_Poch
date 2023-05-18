@@ -5,19 +5,44 @@
   <div>
     <h1>Lista de Varietales</h1>
     <a href="{% url 'crear_varietal' %}">Crear Varietal</a>
-    <br><br>
-    <form action="{% url 'buscar_varietal' %}" method="post">
+    <br>
+    <br>
+      <form action="{% url 'buscar_varietal' %}" method="GET">
       {% csrf_token %}
-      <input type="text" name="busqueda">
+      <input name="q" type="text" placeholder="Ingrese palabra clave.">
       <input type="submit" value="Buscar">
     </form>
     <br>
-    <ul>
-    {% for varietal in varietales %}
-      <li><strong>{{ varietal.nombre }}:</strong> {{ varietal.descripcion }}</li>
-    {% endfor %}
-    </ul>
+    <br>
+    <table class="table">
+      <tbody>
+        <tr>
+          <th>ID</th>
+          <th>Nombre</th>
+          <th>Descripción</th>
+        </tr>
+        {% for varietal in object_list %}
+        <tr>
+          <td>{{ varietal.id }}</td>
+          <td>{{ varietal.nombre }}</td>
+          <td>{{ varietal.descripcion }}</td>
+          <td>
+            </td>
+            <td>
+              <a href="{% url 'editar_varietal' varietal.id %}">
+                <span class='bi bi-pencil-fill' style="color: black;"></span>
+              </a>
+            </td>
+            <td>
+              <a href="{% url 'eliminar_varietal' varietal.id %}">
+                <i class="bi bi-trash" style="color: black;"></i>
+            </a>
+          </td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+ 
   </div>
-</section>
-{% endblock contenido %}
-
+ </section>
+ {% endblock contenido %}

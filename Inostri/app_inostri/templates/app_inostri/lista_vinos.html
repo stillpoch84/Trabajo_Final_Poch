@@ -5,18 +5,54 @@
   <div>
     <h1>Lista de Vinos</h1>
     <a href="{% url 'crear_vino' %}">Crear Vino</a>
-    <br><br>
-    <form action="{% url 'buscar_vino' %}" method="post">
+    <br>
+    <br>
+    <form action="{% url 'buscar_vino' %}" method="GET">
       {% csrf_token %}
-      <input type="text" name="busqueda">
+      <input name="q" type="text" placeholder="Ingrese palabra clave.">
       <input type="submit" value="Buscar">
     </form>
     <br>
-    <ul>
-    {% for vino in vinos %}
-      <li>{{ vino.nombre }}, {{ vino.bodega }}</li>
-    {% endfor %}
-    </ul>
+    
+    <table class="table">
+      <tbody>
+        <tr>
+          <th>ID</th>
+          <th>Nombre</th>
+          <th>Bodega</th>
+          <th>Varietal</th>
+          <th>Zona</th>
+          <th>Provincia</th>
+        </tr>
+        {% for vino in object_list %}
+        <tr>
+          <td>{{ vino.id }}</td>
+          <td>{{ vino.nombre }}</td>
+          <td>{{ vino.bodega }}</td>
+          <td>{{ vino.varietal }}</td>
+          <td>{{ vino.zona }}</td>
+          <td>{{ vino.provincia }}</td>
+          <td>
+            <a href="{% url 'ver_vino' vino.id %}">
+            <span class='bi bi-info-circle' style="color: black;"></span>
+            </a>
+          </td>
+          <td>
+            <a href="{% url 'editar_vino' vino.id %}">
+              <span class='bi bi-pencil-fill' style="color: black;"></span>
+            </a>
+          </td>
+          <td>
+            <a href="{% url 'eliminar_vino' vino.id %}">
+              <i class="bi bi-trash" style="color: black;"></i>
+            </a>
+          </td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+ 
   </div>
-</section>
-{% endblock contenido %}
+ </section>
+ {% endblock contenido %}
+ 

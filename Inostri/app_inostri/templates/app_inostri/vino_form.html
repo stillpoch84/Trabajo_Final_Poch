@@ -1,0 +1,14 @@
+{% extends "app_inostri/base.html" %}
+
+{% block contenido %}
+
+<form method="post">
+  {% csrf_token %}
+  {{ form.as_p }}
+  <input type="submit" value="Guardar" />
+</form>
+
+<br>
+<a href="{% url 'lista_vinos' %}">Volver a la lista.</a>
+
+{% endblock contenido %}

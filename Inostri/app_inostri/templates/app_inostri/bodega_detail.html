@@ -1,0 +1,27 @@
+{% extends "app_inostri/base.html" %}
+
+{% block contenido %}
+
+<p>
+  <strong>Bodega:</strong> {{object.nombre}}
+</p>
+<p>
+  <strong>Zona:</strong> {{object.zona}}
+</p>
+<p>
+  <strong>Provincia:</strong> {{object.provincia}}
+</p>
+<p>
+  <strong>Dirección:</strong> {{object.direccion}}
+</p>
+<p>
+  <strong>Teléfono:</strong> {{object.telefono}}
+</p>
+<p>
+  <strong>eMail:</strong> {{object.email}}
+</p>
+
+<br>
+<a href="{% url 'lista_bodegas' %}">Volver a la lista.</a>
+
+{% endblock contenido %}
