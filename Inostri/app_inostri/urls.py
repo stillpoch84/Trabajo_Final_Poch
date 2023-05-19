@@ -1,8 +1,10 @@
 from django.contrib import admin
 from django.urls import path
 
+from app_inostri.views import AboutUs
+
    
-from app_inostri.views import BuscarVinoView, VinoListView, VinoCreateView, VinoDetailView, \
+from app_inostri.views import BuscarVinoView, VinoListView, VinoCreateView, VinoDetailView,   \
     VinoUpdateView, VinoDeleteView, BodegaListView, BodegaCreateView, BodegaDetailView, \
     BodegaUpdateView, BodegaDeleteView, BuscarBodegaView, VarietalListView, VarietalCreateView, VarietalDetailView, \
     VarietalUpdateView, VarietalDeleteView, BuscarVarietalView
@@ -26,6 +28,7 @@ urlpatterns = [
     path('buscar-varietal/', BuscarVarietalView.as_view(), name='buscar_varietal'),
     path('varietales/<int:pk>/', VarietalDetailView.as_view(), name='ver_varietal'),
     path('editar-varietal/<int:pk>/', VarietalUpdateView.as_view(), name="editar_varietal"),
-    path('eliminar-varietal/<int:pk>/', VarietalDeleteView.as_view(), name="eliminar_varietal"), 
+    path('eliminar-varietal/<int:pk>/', VarietalDeleteView.as_view(), name="eliminar_varietal"),
+    path('about-us/', AboutUs, name='about_us'), 
     
 ]

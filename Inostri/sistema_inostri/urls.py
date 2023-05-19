@@ -25,6 +25,7 @@ urlpatterns = [
     path('', inicio, name='inicio'),
     path('admin/', admin.site.urls),
     path('inostri/', include("app_inostri.urls")),
+    path("perfiles/", include("perfiles.urls")),
 ]
 
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

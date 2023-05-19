@@ -4,6 +4,8 @@ from django.views.generic import ListView, CreateView, DetailView, UpdateView, D
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.db.models import Q
+from django import forms
+from .models import Bodega, Vino
 
 from app_inostri.models import Vino, Bodega, Varietal
 
@@ -100,6 +102,15 @@ class BuscarVarietalView(ListView):
         query = self.request.GET.get('q')
         object_list = Varietal.objects.filter(Q(nombre__icontains=query)|Q(descripcion__icontains=query))
         return object_list
+    
+def AboutUs(request):
+    contexto = {}
+    http_response = render(
+        request=request,
+        template_name='app_inostri/about_us.html',
+        context=contexto,
+    )
+    return http_response
     
 # def listar_vinos(request):
 #     context = {
