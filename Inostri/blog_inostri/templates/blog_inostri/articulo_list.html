@@ -1,0 +1,45 @@
+{% extends "app_inostri/base.html" %}
+{% block contenido %}
+<style>
+    body {
+        font-family: "Roboto", sans-serif;
+        font-size: 18px;
+        background-color: #fdfdfd;
+    }
+
+    .head_text {
+        color: white;
+    }
+
+    .card {
+        box-shadow: 0 16px 48px #E3E7EB;
+    }
+</style>
+
+<div class="container">
+ 
+    <div class="row">
+        <!-- Blog Entries Column -->
+        <div class="col-md-8 mt-3 left">
+          <div class="d-flex justify-content-between mb-3">
+            <h2>Artículos</h2>
+            <a href="{% url 'crear_post' %}" class="btn btn-dark">Crear Artículo</a>
+        </div>
+          {% if object_list %}
+            {% for articulo in object_list %}
+            <div class="card mb-4">
+                <div class="card-body">
+                    <h2 class="card-title">{{ articulo.titulo }}</h2>
+                    <p class="card-text">{{articulo.subtitulo|slice:":200" }}</p>
+                    <p class="card-text text-muted h6">{{ articulo.autor }} | {{ articulo.fecha|date:'d-m-Y'}} </p>
+                    <a href="{% url 'ver_post' articulo.id  %}" class="btn btn-dark">Leer más &rarr;</a>
+                </div>
+            </div>
+            {% endfor %}
+            {% else %}
+            <p>No hay entradas aún.</p>
+        {% endif %}
+        </div>
+      </div>
+</div>
+{%endblock%}

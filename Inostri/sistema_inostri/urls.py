@@ -26,6 +26,7 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('inostri/', include("app_inostri.urls")),
     path("perfiles/", include("perfiles.urls")),
+    path('inostri-blog/', include('blog_inostri.urls')),
 ]
 
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

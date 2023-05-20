@@ -1,0 +1,18 @@
+{% extends 'app_inostri/base.html' %} 
+
+{% block contenido %}
+
+<div class="container">
+  <div class="row">
+    <div class="col-md-8 card mb-4  mt-3 left  top">
+      <div class="card-body">
+        <h1>{% block title %} {{ object.titulo }} {% endblock title %}</h1>
+        <h4> {{ object.subtitulo }} </h4>
+        <p class=" text-muted">{{ articulo.autor }} | {{ articulo.fecha|date:'d-m-Y' }}</p>
+        <p class="card-text ">{{ object.cuerpo | safe }}</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+{% endblock contenido %}
