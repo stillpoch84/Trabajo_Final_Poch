@@ -41,6 +41,9 @@ INSTALLED_APPS = [
     'app_inostri',
     'perfiles',
     'blog_inostri',
+    'ckeditor',
+    
+    
 ]
 
 MIDDLEWARE = [
@@ -115,6 +118,28 @@ USE_I18N = True
 
 USE_TZ = True
 
+# CKEditor config
+
+# CKEDITOR_BASEPATH = '/my_static/ckeditor/ckeditor/'
+
+# CKEDITOR_UPLOAD_PATH = 'uploads/'
+
+
+CKEDITOR_CONFIGS = {
+    'default': {
+        'toolbar': 'Custom',
+        'toolbar_Custom': [
+            ['Bold', 'Italic', 'Underline'],
+            ['NumberedList', 'BulletedList', '-', 'Outdent', 'Indent', '-', 'JustifyLeft', 'JustifyCenter', 'JustifyRight', 'JustifyBlock'],
+            ['Link', 'Unlink'],
+            ['RemoveFormat', 'Source']
+        ]
+    }
+}
+# Summernote Configuration
+
+X_FRAME_OPTIONS = 'SAMEORIGIN'
+
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.2/howto/static-files/
@@ -123,7 +148,10 @@ STATIC_URL = 'static/'
 
 STATICFILES_DIRS = [
     BASE_DIR / "static",
+    
 ]
+
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field

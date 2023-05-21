@@ -7,6 +7,7 @@ from django.views.generic import CreateView, ListView, DetailView, DeleteView, U
 from django.urls import reverse_lazy
 from .models import Articulo
 from django.contrib.auth.mixins import LoginRequiredMixin
+from django_summernote.widgets import SummernoteWidget, SummernoteInplaceWidget
 
 class CrearPostView(LoginRequiredMixin, CreateView):
     model = Articulo

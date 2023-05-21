@@ -1,9 +1,11 @@
 {% extends "app_inostri/base.html" %}
+{% load static %}
 
 {% block contenido %}
 
 <form method="post">
   {% csrf_token %}
+  {{ form.media }}  {# Include CKEditor media files #}
   {{ form.as_p }}
   <input type="submit" value="Guardar" />
 </form>

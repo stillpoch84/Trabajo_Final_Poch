@@ -37,7 +37,7 @@ class BuscarVinoView(ListView):
 
     def get_queryset(self):
         query = self.request.GET.get('q')
-        object_list = Vino.objects.filter(Q(nombre__icontains=query)|Q(bodega__icontains=query)|Q(Varietal__icontains=query)|Q(zona__icontains=query)|Q(provincia__icontains=query))
+        object_list = Vino.objects.filter(Q(nombre__icontains=query)|Q(bodega__icontains=query)|Q(varietal__icontains=query)|Q(zona__icontains=query)|Q(provincia__icontains=query))
         return object_list
 
 
