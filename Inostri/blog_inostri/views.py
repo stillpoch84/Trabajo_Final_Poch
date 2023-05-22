@@ -2,6 +2,7 @@ from django.views.generic import CreateView
 from django.urls import reverse_lazy
 from .models import Articulo
 from datetime import date
+from django.utils import timezone
 
 from django.views.generic import CreateView, ListView, DetailView, DeleteView, UpdateView
 from django.urls import reverse_lazy
@@ -15,7 +16,7 @@ class CrearPostView(LoginRequiredMixin, CreateView):
 
     def form_valid(self, form):
         form.instance.autor = self.request.user  
-        form.instance.fecha = date.today()  
+        form.instance.fecha = timezone.now().date()  
         form.instance.imagen = self.request.FILES.get('imagen')
         return super().form_valid(form)
         
@@ -41,6 +42,6 @@ class PostUpdateView(LoginRequiredMixin, UpdateView):
 
     def form_valid(self, form):
         form.instance.autor = self.request.user
-        form.instance.fecha = date.today()
+        form.instance.fecha = timezone.now().date()
         form.instance.imagen = self.request.FILES.get('imagen')
         return super().form_valid(form)

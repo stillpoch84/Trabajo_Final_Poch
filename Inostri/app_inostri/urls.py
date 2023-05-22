@@ -27,7 +27,7 @@ urlpatterns = [
     path('crear-varietal/', VarietalCreateView.as_view(), name='crear_varietal'),
     path('buscar-varietal/', BuscarVarietalView.as_view(), name='buscar_varietal'),
     path('varietales/<int:pk>/', VarietalDetailView.as_view(), name='ver_varietal'),
-    path('editar-varietal/<int:pk>/', VarietalUpdateView.as_view(), name="editar_varietal"),
+    path('editar-varietal/<int:pk>/', VarietalUpdateView.as_view(), name='editar_varietal'),
     path('eliminar-varietal/<int:pk>/', VarietalDeleteView.as_view(), name="eliminar_varietal"),
     path('about-us/', AboutUs, name='about_us'), 
     

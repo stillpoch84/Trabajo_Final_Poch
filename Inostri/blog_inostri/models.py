@@ -10,7 +10,7 @@ class Articulo(models.Model):
     subtitulo = models.CharField(max_length=256)
     cuerpo = RichTextField(default="")
     autor = models.ForeignKey(User, on_delete=models.CASCADE)
-    fecha = models.DateTimeField(auto_now_add=False)
+    fecha = models.DateTimeField(auto_now_add=True)
     imagen = models.ImageField(blank=True, null=True)
 
     def __str__(self):
