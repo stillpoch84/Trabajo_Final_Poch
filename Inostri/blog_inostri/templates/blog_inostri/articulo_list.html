@@ -9,7 +9,9 @@
       <div class="col-md-8 mt-3 left">
           <div class="d-flex justify-content-between mb-3">
               <h2>Artículos</h2>
+              {% if user.is_authenticated %}
               <a href="{% url 'crear_post' %}" class="btn btn-dark">Crear Artículo</a>
+              {% endif %}
           </div>
           {% if object_list %}
           {% for articulo in object_list %}
