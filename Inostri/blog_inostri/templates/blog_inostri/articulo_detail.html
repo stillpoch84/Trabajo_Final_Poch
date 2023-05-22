@@ -10,7 +10,7 @@
         <h4> {{ object.subtitulo }} </h4>
         <p class=" text-muted">{{ articulo.autor }} | {{ articulo.fecha|date:'d-m-Y' }}</p>
         {% if object.imagen %}
-        <img src="{{ articulo.imagen.url }}" alt="Imagen del artículo">
+        <img src="{{ articulo.imagen.url }}" class="card-img-top" alt="Articulo Image" style="width: 100%; height: auto;">
         {% endif %}
         <p class="card-text ">{{ object.cuerpo | safe }}</p>
       </div>
