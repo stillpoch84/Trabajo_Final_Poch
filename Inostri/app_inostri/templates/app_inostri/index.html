@@ -3,7 +3,15 @@
 
 {% block contenido %}
 
-<h1>Bienvenidos a I Nostri, {{user.first_name}}.</h1>
-<h5>Navegá por nuestro sitio, y encontrá el vino para vos.</h5>
-<img src="{{ user.avatar.imagen.url }}" style="width: 150px; height: 150px;" />
+<div class="container text-center">
+    {% if user.is_authenticated %}
+      <h1>Bienvenidos a I Nostri, {{ user.first_name }}.</h1>
+      <h5>Navegá por nuestro sitio y encontrá el vino para vos.</h5>
+      <img src="{{ user.avatar.imagen.url }}" style="width: 150px; height: 150px;" class="mx-auto d-block">
+    {% else %}  
+        <h1>Bienvenidos a I Nostri.</h1>
+        <h5>Registrata o iniciá sesión para disfrutar del sitio.</h5>
+    {% endif %}
+</div>
+
 {% endblock contenido %}

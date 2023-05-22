@@ -42,7 +42,8 @@ INSTALLED_APPS = [
     'perfiles',
     'blog_inostri',
     'ckeditor',
-    
+    'ckeditor_uploader',
+        
     
 ]
 
@@ -122,11 +123,14 @@ USE_TZ = True
 
 # CKEDITOR_BASEPATH = '/my_static/ckeditor/ckeditor/'
 
-# CKEDITOR_UPLOAD_PATH = 'uploads/'
+CKEDITOR_UPLOAD_PATH = 'uploads/'
 
 
 CKEDITOR_CONFIGS = {
     'default': {
+        #'uploadUrl': '/ckeditor/upload/',
+        'filebrowserUploadUrl': '/ckeditor/upload/',
+        'filebrowserUploadUrl': '/ckeditor/browse/',
         'toolbar': 'Custom',
         'toolbar_Custom': [
             ['Bold', 'Italic', 'Underline'],
@@ -138,7 +142,7 @@ CKEDITOR_CONFIGS = {
 }
 # Summernote Configuration
 
-X_FRAME_OPTIONS = 'SAMEORIGIN'
+# X_FRAME_OPTIONS = 'SAMEORIGIN'
 
 
 # Static files (CSS, JavaScript, Images)
@@ -162,3 +166,7 @@ LOGIN_URL = 'login'
 
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+
+CKEDITOR_UPLOAD_PATH = 'ckeditor/uploads/'
+
+CKEDITOR_IMAGE_BACKEND = 'pillow'

@@ -6,7 +6,7 @@
     <div class="col-md-8 mt-3 left">
       <div class="d-flex justify-content-between mb-3">
     <h1>Lista de Bodegas</h1>
-    <a href="{% url 'crear_vino' %}" class="btn btn-dark">Crear Bodega</a>
+    <a href="{% url 'crear_bodega' %}" class="btn btn-dark">Crear Bodega</a>
       </div>
     <form action="{% url 'buscar_bodega' %}" method="GET">
       {% csrf_token %}

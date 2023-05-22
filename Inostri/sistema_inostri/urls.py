@@ -14,7 +14,7 @@ urlpatterns = [
     path('inostri/', include("app_inostri.urls")),
     path("perfiles/", include("perfiles.urls")),
     path('inostri-blog/', include('blog_inostri.urls')),
-#    path('ckeditor/', include('ckeditor_uploader.urls')),
+    path('ckeditor/', include('ckeditor_uploader.urls')),
    
 ]
 
