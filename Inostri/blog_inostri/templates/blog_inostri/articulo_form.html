@@ -14,7 +14,7 @@
 
 {% block contenido %}
 
-<form method="post">
+<form method="post" enctype="multipart/form-data">
   {% csrf_token %}
   {{ form.media }}  {# Include CKEditor media files #}
   {{ form.as_p }}

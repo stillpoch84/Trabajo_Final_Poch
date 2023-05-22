@@ -16,6 +16,7 @@ class CrearPostView(LoginRequiredMixin, CreateView):
     def form_valid(self, form):
         form.instance.autor = self.request.user  
         form.instance.fecha = date.today()  
+        form.instance.imagen = self.request.FILES.get('imagen')
         return super().form_valid(form)
         
     
@@ -37,3 +38,9 @@ class PostUpdateView(LoginRequiredMixin, UpdateView):
     model = Articulo
     fields = ('titulo', 'subtitulo', 'cuerpo', 'imagen')
     success_url = reverse_lazy('lista_posts')   
+
+    def form_valid(self, form):
+        form.instance.autor = self.request.user
+        form.instance.fecha = date.today()
+        form.instance.imagen = self.request.FILES.get('imagen')
+        return super().form_valid(form)
