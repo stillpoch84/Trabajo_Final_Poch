@@ -79,6 +79,7 @@ class VarietalListView(ListView):
 class VarietalCreateView(LoginRequiredMixin, CreateView):
     model = Varietal
     fields = ('nombre', 'descripcion')
+    # template_name = 'app_inostri/formulario_varietal.html'
     success_url = reverse_lazy('lista_varietales')
 
 class VarietalDetailView(LoginRequiredMixin, DetailView):

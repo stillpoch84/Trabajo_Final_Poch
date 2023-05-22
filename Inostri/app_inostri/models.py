@@ -1,4 +1,5 @@
 from django.db import models
+from ckeditor.fields import RichTextField
 
 # Create your models here.
 
@@ -26,7 +27,7 @@ class Bodega(models.Model):
     
 class Varietal(models.Model):
     nombre = models.CharField(max_length=64)
-    descripcion = models.TextField(blank=True)
+    descripcion = models.TextField()
     
     def __str__(self):
         return f'{self.nombre} | {self.descripcion}'
